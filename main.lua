@@ -175,7 +175,7 @@ function moveTiros()
 end
 
 function love.update(dt)
-    if not FIM_JOGO and not VENCEDOR then
+    if not FIM_JOGO and not VENCEDOR and not PAUSED then
         if love.keyboard.isDown('w', 'a', 's', 'd') then
             move14bis()
         end
@@ -212,6 +212,10 @@ function love.keypressed(tecla)
     elseif tecla == "space" then
         atirar()
     end
+
+    if tecla == "p" then
+    	PAUSED = not PAUSED
+   	end
 end
 
 function love.draw()
@@ -246,5 +250,11 @@ function love.draw()
             LARGURA_TELA / 2 - vencedor_img:getWidth() / 2, 
             ALTURA_TELA / 2 - vencedor_img:getHeight() /2
         )
+    end
+
+    if PAUSED then
+    	love.graphics.setColor(0.4, 0.4, 0.4, 0.5)
+    	love.graphics.rectangle("fill", 0, 0, LARGURA_TELA, ALTURA_TELA)
+    	love.graphics.setColor(1, 1, 1, 1)
     end
 end
