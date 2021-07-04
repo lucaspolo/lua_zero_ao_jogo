@@ -61,16 +61,16 @@ function criarMeteoro()
 end
 
 function move14bis()
-    if love.keyboard.isDown('w') then
+    if love.keyboard.isDown('up') then
         aviao_14bis.y = aviao_14bis.y - 1
     end
-    if love.keyboard.isDown('s') then
+    if love.keyboard.isDown('down') then
         aviao_14bis.y = aviao_14bis.y + 1
     end
-    if love.keyboard.isDown('d') then
+    if love.keyboard.isDown('right') then
         aviao_14bis.x = aviao_14bis.x + 1
     end
-    if love.keyboard.isDown('a') then
+    if love.keyboard.isDown('left') then
         aviao_14bis.x = aviao_14bis.x - 1
     end
 
@@ -176,7 +176,7 @@ end
 
 function love.update(dt)
     if not FIM_JOGO and not VENCEDOR and not PAUSED then
-        if love.keyboard.isDown('w', 'a', 's', 'd') then
+        if love.keyboard.isDown('up', 'left', 'down', 'right') then
             move14bis()
         end
 
